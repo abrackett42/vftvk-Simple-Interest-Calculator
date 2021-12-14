@@ -7,9 +7,9 @@ function compute()
     var years = document.getElementById("years").value;
     var interest = principal * years * rate /100;
     var year = new Date().getFullYear()+parseInt(years);
-    var amount = interest + principal; //calculates total amount
+    var result = interest;
     
-    document.getElementById("result").innerHTML="If you deposit $'<mark>'"+principal+"'</mark>',\<br\>at an interest rate of '<mark>'"+rate+"'</mark>'%\<br\>You will receive an amount of $'<mark>'"+amount+"'</mark>',\<br\>in the year '<mark>'"+year+"'</mark>'\<br\>"
+    document.getElementById("result").innerHTML="If you deposit $'<mark>'"+principal+"'</mark>',\<br\>at an interest rate of '<mark>'"+rate+"'</mark>'%\<br\>You will receive an interest amount of $'<mark>'"+result+"'</mark>',\<br\>in the year '<mark>'"+year+"'</mark>'\<br\>"
 }
 
 function updateRate() //input function that reads value of the range slider
@@ -22,9 +22,9 @@ function updateRate() //input function that reads value of the range slider
 function validateAmount()
 {
     var principal = document.getElementById("principal").value;
-    var morethanzero = parseInt(principal) > 0;
-    if (!morethanzero) {
-        alert("Please enter a positive number!");
+    var higherthanzero = parseInt(principal) > 0;
+    if (!higherthanzero) {
+        alert("Please enter a positive number higher than 0!");
         document.getElementById("principal").focus();
     }
 }
